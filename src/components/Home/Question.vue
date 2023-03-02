@@ -127,6 +127,7 @@ const handleFaq = (identifier) => {
           border-radius: 24px;
           @extend %center;
           transition: all 0.5s ease-in-out;
+          flex-shrink: 0;
           img {
             transition: all 0.5s ease-in-out;
           }

@@ -12,28 +12,68 @@
       <div class="grid">
         <ul>
           <li style="--x1: 2; --x2: 6; --y1: 1; --y2: 4">
-            <img src="https://picsum.photos/600/600?random=1" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=1"
+              alt=""
+              width="259"
+              height="188"
+            />
           </li>
           <li style="--x1: 6; --x2: 8; --y1: 2; --y2: 4">
-            <img src="https://picsum.photos/600/600?random=2" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=2"
+              alt=""
+              width="125"
+              height="127"
+            />
           </li>
           <li style="--x1: 1; --x2: 4; --y1: 4; --y2: 7">
-            <img src="https://picsum.photos/600/600?random=3" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=3"
+              alt=""
+              width="188"
+              height="188"
+            />
           </li>
           <li style="--x1: 4; --x2: 7; --y1: 4; --y2: 7">
-            <img src="https://picsum.photos/600/600?random=4" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=4"
+              alt=""
+              width="188"
+              height="188"
+            />
           </li>
           <li style="--x1: 7; --x2: 9; --y1: 4; --y2: 6">
-            <img src="https://picsum.photos/600/600?random=5" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=5"
+              alt=""
+              width="126"
+              height="126"
+            />
           </li>
           <li style="--x1: 2; --x2: 4; --y1: 7; --y2: 9">
-            <img src="https://picsum.photos/600/600?random=7" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=7"
+              alt=""
+              width="126"
+              height="126"
+            />
           </li>
           <li style="--x1: 4; --x2: 7; --y1: 7; --y2: 10">
-            <img src="https://picsum.photos/600/600?random=8" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=8"
+              alt=""
+              width="188"
+              height="188"
+            />
           </li>
           <li style="--x1: 7; --x2: 10; --y1: 6; --y2: 9">
-            <img src="https://picsum.photos/600/600?random=9" alt="" />
+            <img
+              src="https://picsum.photos/600/600?random=9"
+              alt=""
+              width="188"
+              height="187"
+            />
           </li>
         </ul>
       </div>
@@ -45,7 +85,7 @@
 
 <style lang="scss" scoped>
 .features {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $text-2;
   padding: 3rem 7%;
   h4 {
@@ -60,28 +100,12 @@
   &__content {
     @extend %flex-ac;
     .grid {
-      display: grid;
       ul {
-        --big-tile-size: 50vmin;
-        --scale: 0.4;
-        --rotation: 270deg;
-        --tile-size: calc(var(--big-tile-size) / 3);
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
         display: grid;
-        gap: 1vmin;
-        grid-template: repeat(9, var(--tile-size)) / repeat(9, var(--tile-size));
-        transform: translate(-50%, -50%) scale(var(--scale));
+        grid-template-columns: repeat(auto-fill, minmax(180, 1fr));
+        grid-auto-rows: auto;
       }
       li {
-        grid-column: var(--x1, auto) / var(--x2, auto);
-        grid-row: var(--y1, auto) / var(--y2, auto);
-      }
-
-      li {
-        border-radius: var(--radius-2);
-        overflow: hidden;
       }
     }
   }

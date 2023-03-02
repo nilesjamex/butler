@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 .world {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $text-1;
   position: relative;
   img {

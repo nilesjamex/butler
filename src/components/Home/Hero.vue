@@ -91,8 +91,12 @@ if (window.sessionStorage.getItem("loaded") === null) {
 .hero {
   background-color: #f2e2da;
   background-blend-mode: hue;
-  height: 100vh;
+  background-image: url(@/assets/hue2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   position: relative;
+  padding-bottom: 3rem;
   &__heading {
     height: 42px;
     width: 100vw;

@@ -46,7 +46,7 @@ const services = ref([
 
 <style lang="scss" scoped>
 .service {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $text-1;
   padding: 4rem 7%;
   &__text {

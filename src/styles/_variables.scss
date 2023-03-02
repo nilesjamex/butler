@@ -1,6 +1,8 @@
 $white: #ffffff;
 $black: #000000;
-
+$text-1: #1f3138;
+$text-2: #071012;
+$text-3: #F2E2DA;
 $green: #3fc380;
 $orange: #f17427;
 $red: #f96066;
@@ -27,3 +29,5 @@ $z-indexes: (
 
 $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 $ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+$border: 1px solid #f2e2da;

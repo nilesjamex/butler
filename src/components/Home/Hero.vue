@@ -18,7 +18,40 @@
     </div>
     <div class="hero__text">
       <p>Make your life easier than before without</p>
-      <h6>Cleaning..</h6>
+      <!-- <div class="hero__text__sub">
+        <div>
+          <h6>Cleaning..</h6>
+          <h6>Food</h6>
+          <h6>Love</h6>
+        </div>
+      </div> -->
+      <div class="pushcontain">
+        <div class="push">
+          <span :class="count === 1 ? `active` : ``">L</span
+          ><span :class="count === 1 ? `active` : ``">A</span
+          ><span :class="count === 1 ? `active` : ``">U</span
+          ><span :class="count === 1 ? `active` : ``">N</span
+          ><span :class="count === 1 ? `active` : ``">D</span
+          ><span :class="count === 1 ? `active` : ``">R</span
+          ><span :class="count === 1 ? `active` : ``">Y</span>
+        </div>
+        <div class="push">
+          <span :class="count === 2 ? `active` : ``">F</span
+          ><span :class="count === 2 ? `active` : ``">O</span
+          ><span :class="count === 2 ? `active` : ``">O</span
+          ><span :class="count === 2 ? `active` : ``">D</span>
+        </div>
+        <div class="push">
+          <span :class="count === 3 ? `active` : ``">C</span
+          ><span :class="count === 3 ? `active` : ``">L</span
+          ><span :class="count === 3 ? `active` : ``">E</span
+          ><span :class="count === 3 ? `active` : ``">A</span>
+          <span :class="count === 3 ? `active` : ``">N</span
+          ><span :class="count === 3 ? `active` : ``">I</span
+          ><span :class="count === 3 ? `active` : ``">N</span
+          ><span :class="count === 3 ? `active` : ``">G</span>
+        </div>
+      </div>
     </div>
     <p class="sub">
       We understand that life can be hectic, and that's why we're here to take
@@ -45,6 +78,8 @@
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
+import SplitTextJS from "split-text-js";
+import { gsap, Linear } from "gsap";
 const store = useStore();
 const button = ref([
   {
@@ -85,6 +120,47 @@ if (window.sessionStorage.getItem("loaded") === null) {
 } else {
   store.state.showCover = false;
 }
+const show = ref(true);
+const count = ref(1);
+setInterval(() => {
+  if (count.value === 3) {
+    count.value = 1;
+  } else {
+    count.value++;
+  }
+}, 3000);
+const titles = gsap.utils.toArray("h6");
+const tl = gsap.timeline();
+// iterate over each titles
+console.log(titles);
+titles.forEach((title) => {
+  console.log(title);
+  const splitTitle = new SplitTextJS(title);
+  console.log(splitTitle);
+  // tl.from(
+  //   splitTitle.chars,
+  //   {
+  //     opacity: 0,
+  //     y: 80,
+  //     rotateX: -90,
+  //     stagger: 0.02,
+  //     ease: Linear.easeNone,
+  //     repeat: -1,
+  //   },
+  //   "<"
+  // ).to(
+  //   splitTitle.chars,
+  //   {
+  //     opacity: 0,
+  //     y: -80,
+  //     rotateX: 90,
+  //     stagger: 0.02,
+  //     ease: Linear.easeNone,
+  //     repeat: -1,
+  //   },
+  //   "<1"
+  // );
+});
 </script>
 
 <style lang="scss" scoped>
@@ -111,8 +187,7 @@ if (window.sessionStorage.getItem("loaded") === null) {
   }
   &__button {
     padding: 3rem 7%;
-    @extend %flex-ac;
-    gap: 10rem;
+    @extend %flex-ac-jb;
     .button {
       @extend %flex-ac;
       gap: 1rem;
@@ -134,7 +209,7 @@ if (window.sessionStorage.getItem("loaded") === null) {
         font-family: "Neurial Grotesk", sans-serif;
         font-style: normal;
         font-weight: 500;
-        font-size: Max(1.25rem, 20px);
+        font-size: Max(0.9rem, 15px);
         line-height: 120%;
         color: $black;
         &.active {
@@ -148,6 +223,142 @@ if (window.sessionStorage.getItem("loaded") === null) {
     width: Min(1099px, 100%);
     margin: 2rem auto;
     text-align: center;
+    .push {
+      font-family: "Maglony";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 5rem;
+      line-height: 0;
+      margin: 0;
+      color: $text-2;
+      span {
+        display: inline-block;
+        &:nth-child(1) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 1s ease-in;
+        }
+        &:nth-child(2) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 1.3s ease-in;
+        }
+        &:nth-child(3) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 1.6s ease-in;
+        }
+        &:nth-child(4) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 1.9s ease-in;
+        }
+        &:nth-child(5) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 2.2s ease-in;
+        }
+        &:nth-child(6) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 2.5s ease-in;
+        }
+        &:nth-child(7) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 2.8s ease-in;
+        }
+        &:nth-child(8) {
+          transform: translateY(15px);
+          opacity: 0;
+          transition: all 3.1s ease-in;
+        }
+        &.active {
+          &:nth-child(1) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 1s ease-in;
+          }
+          &:nth-child(2) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 1.3s ease-in;
+          }
+          &:nth-child(3) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 1.6s ease-in;
+          }
+          &:nth-child(4) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 1.9s ease-in;
+          }
+          &:nth-child(5) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 2.2s ease-in;
+          }
+          &:nth-child(6) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 2.5s ease-in;
+          }
+          &:nth-child(7) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 2.8s ease-in;
+          }
+          &:nth-child(8) {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 3.1s ease-in;
+          }
+        }
+        &.not {
+          &:nth-child(1) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 1s ease-out;
+          }
+          &:nth-child(2) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 1.3s ease-out;
+          }
+          &:nth-child(3) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 1.6s ease-out;
+          }
+          &:nth-child(4) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 1.9s ease-out;
+          }
+          &:nth-child(5) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 2.2s ease-out;
+          }
+          &:nth-child(6) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 2.5s ease-out;
+          }
+          &:nth-child(7) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 2.8s ease-out;
+          }
+          &:nth-child(8) {
+            transform: translateY(-15px);
+            opacity: 0;
+            transition: all 3.1s ease-out;
+          }
+        }
+      }
+    }
     p {
       font-family: "Neurial Grotesk", sans-serif;
       font-style: normal;
@@ -156,6 +367,7 @@ if (window.sessionStorage.getItem("loaded") === null) {
       line-height: 120%;
       text-align: center;
       color: $black;
+      margin-bottom: 3rem;
     }
     h6 {
       font-family: "Maglony";
@@ -163,6 +375,7 @@ if (window.sessionStorage.getItem("loaded") === null) {
       font-weight: 600;
       font-size: 5rem;
       line-height: 150%;
+      margin: 0;
       color: $text-2;
     }
   }
@@ -176,7 +389,7 @@ if (window.sessionStorage.getItem("loaded") === null) {
       line-height: 120%;
       text-align: center;
       color: $text-1;
-      margin: 0 auto;
+      margin: 4rem auto;
     }
   }
   button {

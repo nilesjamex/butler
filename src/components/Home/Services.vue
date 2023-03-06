@@ -116,10 +116,11 @@ const services = ref([
         border: $border;
         color: $text-3;
         margin-top: 0.65rem;
-        &.active {
+        transition: all 0.5s ease-in-out;
+        &:hover {
           background: $text-3;
           color: $text-1;
-          border: none;
+          transition: all 0.5s ease-in-out;
         }
       }
     }

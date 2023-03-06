@@ -128,6 +128,7 @@ const handleFaq = (identifier) => {
           @extend %center;
           transition: all 0.5s ease-in-out;
           flex-shrink: 0;
+          cursor: pointer;
           img {
             transition: all 0.5s ease-in-out;
           }

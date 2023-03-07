@@ -241,37 +241,37 @@ titles.forEach((title) => {
         &:nth-child(2) {
           transform: translateY(15px);
           opacity: 0;
-          transition: all 1.3s ease-in;
+          transition: all 1.1s ease-in;
         }
         &:nth-child(3) {
           transform: translateY(15px);
           opacity: 0;
-          transition: all 1.6s ease-in;
+          transition: all 1.2s ease-in;
         }
         &:nth-child(4) {
           transform: translateY(15px);
           opacity: 0;
-          transition: all 1.9s ease-in;
+          transition: all 1.3s ease-in;
         }
         &:nth-child(5) {
           transform: translateY(15px);
           opacity: 0;
-          transition: all 2.2s ease-in;
+          transition: all 1.4s ease-in;
         }
         &:nth-child(6) {
           transform: translateY(15px);
           opacity: 0;
-          transition: all 2.5s ease-in;
+          transition: all 1.5s ease-in;
         }
         &:nth-child(7) {
           transform: translateY(15px);
           opacity: 0;
-          transition: all 2.8s ease-in;
+          transition: all 1.6s ease-in;
         }
         &:nth-child(8) {
           transform: translateY(15px);
           opacity: 0;
-          transition: all 3.1s ease-in;
+          transition: all 1.7s ease-in;
         }
         &.active {
           &:nth-child(1) {
@@ -282,37 +282,37 @@ titles.forEach((title) => {
           &:nth-child(2) {
             transform: translateY(0);
             opacity: 1;
-            transition: all 1.3s ease-in;
+            transition: all 1.1s ease-in;
           }
           &:nth-child(3) {
             transform: translateY(0);
             opacity: 1;
-            transition: all 1.6s ease-in;
+            transition: all 1.2s ease-in;
           }
           &:nth-child(4) {
             transform: translateY(0);
             opacity: 1;
-            transition: all 1.9s ease-in;
+            transition: all 1.3s ease-in;
           }
           &:nth-child(5) {
             transform: translateY(0);
             opacity: 1;
-            transition: all 2.2s ease-in;
+            transition: all 1.4s ease-in;
           }
           &:nth-child(6) {
             transform: translateY(0);
             opacity: 1;
-            transition: all 2.5s ease-in;
+            transition: all 1.5s ease-in;
           }
           &:nth-child(7) {
             transform: translateY(0);
             opacity: 1;
-            transition: all 2.8s ease-in;
+            transition: all 1.6s ease-in;
           }
           &:nth-child(8) {
             transform: translateY(0);
             opacity: 1;
-            transition: all 3.1s ease-in;
+            transition: all 1.7s ease-in;
           }
         }
         &.not {
@@ -324,37 +324,37 @@ titles.forEach((title) => {
           &:nth-child(2) {
             transform: translateY(-15px);
             opacity: 0;
-            transition: all 1.3s ease-out;
+            transition: all 1.1s ease-out;
           }
           &:nth-child(3) {
             transform: translateY(-15px);
             opacity: 0;
-            transition: all 1.6s ease-out;
+            transition: all 1.2s ease-out;
           }
           &:nth-child(4) {
             transform: translateY(-15px);
             opacity: 0;
-            transition: all 1.9s ease-out;
+            transition: all 1.3s ease-out;
           }
           &:nth-child(5) {
             transform: translateY(-15px);
             opacity: 0;
-            transition: all 2.2s ease-out;
+            transition: all 1.4s ease-out;
           }
           &:nth-child(6) {
             transform: translateY(-15px);
             opacity: 0;
-            transition: all 2.5s ease-out;
+            transition: all 1.5s ease-out;
           }
           &:nth-child(7) {
             transform: translateY(-15px);
             opacity: 0;
-            transition: all 2.8s ease-out;
+            transition: all 1.6s ease-out;
           }
           &:nth-child(8) {
             transform: translateY(-15px);
             opacity: 0;
-            transition: all 3.1s ease-out;
+            transition: all 1.7s ease-out;
           }
         }
       }

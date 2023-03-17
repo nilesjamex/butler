@@ -95,7 +95,7 @@ const marquee = ref([
 
 <style lang="scss" scoped>
 .onboard {
-  //min-height: 100vh;
+  height: 100vh;
   background-color: $text-1;
   position: relative;
   padding: 3rem 0;
@@ -200,9 +200,10 @@ const marquee = ref([
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
+    position: absolute;
+    bottom: 0;
     @extend %flex-ac;
     gap: var(--gap-space);
-    margin-top: 8rem;
     &__container {
       flex-shrink: 0;
       gap: var(--gap-space);

@@ -1,5 +1,33 @@
 <template>
   <section class="hero">
+    <img
+      src="@/assets/svg/balloon.svg"
+      class="ballon"
+      width="240"
+      height="240"
+      alt=""
+    />
+    <img
+      src="@/assets/svg/bee.svg"
+      width="100"
+      class="bee"
+      height="83"
+      alt=""
+    />
+    <img
+      src="@/assets/svg/frog.svg"
+      width="203"
+      class="frog"
+      height="166"
+      alt=""
+    />
+    <img
+      src="@/assets/svg/star.svg"
+      width="108"
+      class="star"
+      height="109"
+      alt=""
+    />
     <div class="hero__heading">
       <h4>I believe in good design. Do you?</h4>
     </div>
@@ -16,6 +44,7 @@
         </button>
       </div>
     </div>
+    <div id="demo"></div>
     <div class="hero__text">
       <p>Make your life easier than before without</p>
       <!-- <div class="hero__text__sub">
@@ -132,11 +161,11 @@ setInterval(() => {
 const titles = gsap.utils.toArray("h6");
 const tl = gsap.timeline();
 // iterate over each titles
-console.log(titles);
+//console.log(titles);
 titles.forEach((title) => {
-  console.log(title);
+  //console.log(title);
   const splitTitle = new SplitTextJS(title);
-  console.log(splitTitle);
+  //console.log(splitTitle);
   // tl.from(
   //   splitTitle.chars,
   //   {
@@ -161,6 +190,38 @@ titles.forEach((title) => {
   //   "<1"
   // );
 });
+
+let phrases = ["Laundry", "Cleaning", "Food"];
+let demo = document.querySelector("#demo");
+console.log(document.querySelector("#demo"));
+let animation = gsap.timeline({ repeat: 5, repeatDelay: 0.5 });
+const createLayers = () => {
+  phrases.forEach((phrase) => {
+    let layer = document.createElement("div");
+    layer.innerHTML = phrase;
+    //demo.appendChild(layer);
+  });
+};
+const animateText = () => {
+  let layers = document.querySelectorAll(".demo div");
+  layers.forEach(function (element, index) {
+    animation.fromTo(
+      element,
+      { opacity: 0, scale: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        repeat: 1,
+        yoyo: true,
+        yoyoEase: true,
+        repeatDelay: 0.3,
+      }
+    );
+  });
+  gsap.set(".demo", { visibility: "visible" });
+};
+createLayers();
+animateText();
 </script>
 
 <style lang="scss" scoped>
@@ -173,6 +234,86 @@ titles.forEach((title) => {
   min-height: 100vh;
   position: relative;
   padding-bottom: 3rem;
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-35px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes ballonnBounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes bee {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(-50deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  @keyframes frog {
+    0% {
+      transform: rotate(180deg);
+    }
+    50% {
+      transform: rotate(-180deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+  .ballon {
+    position: absolute;
+    right: 2%;
+    top: 15%;
+    animation-name: ballonnBounce;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  .star {
+    position: absolute;
+    left: 5%;
+    top: 54%;
+    animation-name: bounce;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  .bee {
+    position: absolute;
+    left: 15%;
+    bottom: 7%;
+    animation-name: bee;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  .frog {
+    position: absolute;
+    right: 5%;
+    bottom: 6%;
+    animation-name: frog;
+    animation-timing-function: ease;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+  }
   &__heading {
     height: 42px;
     width: 100vw;
@@ -223,6 +364,8 @@ titles.forEach((title) => {
     width: Min(1099px, 100%);
     margin: 2rem auto;
     text-align: center;
+    .demo {
+    }
     .push {
       font-family: "Maglony";
       font-style: normal;

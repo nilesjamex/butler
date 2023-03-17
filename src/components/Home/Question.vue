@@ -1,11 +1,19 @@
 <template>
   <section class="question">
     <div class="question__text">
-      <h2>Have a question?</h2>
-      <p>
-        Here are some of our most asked questions. If what you need is not here,
-        do not hesitate to reach out.
-      </p>
+      <div>
+        <h2>Have a question?</h2>
+        <p>
+          Here are some of our most asked questions. If what you need is not
+          here, do not hesitate to reach out.
+        </p>
+      </div>
+      <img
+        src="@/assets/Chat.png"
+        alt="two chat symbol with eyes"
+        width="240"
+        height="240"
+      />
     </div>
     <div class="question__faq">
       <div
@@ -76,6 +84,7 @@ const handleFaq = (identifier) => {
   background-color: $text-1;
   padding: 3rem 7%;
   &__text {
+    @extend %flex-ac-jb;
     h2 {
       font-family: "Neurial Grotesk", sans-serif;
       font-style: normal;
@@ -99,7 +108,7 @@ const handleFaq = (identifier) => {
     margin-top: 3rem;
     .item {
       width: 100%;
-      background-color: #ebe6dd;
+      background-color: #d6eee9;
       border-radius: Max(1.25rem, 20px);
       padding: 52px 60px;
       transition: all 0.5s ease-in-out;

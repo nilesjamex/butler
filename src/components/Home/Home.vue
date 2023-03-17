@@ -2,8 +2,9 @@
   <Hero />
   <Services />
   <Onboard />
-  <World />
+  <Features />
   <Question />
+  <Review />
   <Get />
   <Subscribe />
 </template>
@@ -12,7 +13,7 @@
 import Hero from "./Hero.vue";
 import Services from "./Services.vue";
 import Onboard from "./Onboarding.vue";
-import World from "./World.vue";
+import Review from "./Review.vue";
 import Question from "./Question.vue";
 import Get from "./Get.vue";
 import Subscribe from "./Subscribe.vue";

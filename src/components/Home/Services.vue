@@ -22,21 +22,21 @@ import { ref } from "vue";
 const services = ref([
   {
     id: 1,
-    img: require("@/assets/chart.png"),
+    img: require("@/assets/Glasses.png"),
     title: "Home Cleaning",
     desc: "High quality cleaning, on your schedule",
     colored: true,
   },
   {
     id: 2,
-    img: require("@/assets/gem.png"),
+    img: require("@/assets/bars.png"),
     title: "Laundry Services",
     desc: "Professional Laundry Personalized",
     colored: false,
   },
   {
     id: 3,
-    img: require("@/assets/gem.png"),
+    img: require("@/assets/Soup.png"),
     title: "Food",
     desc: "Unique blend of exceptional food services.",
     colored: true,
@@ -46,6 +46,17 @@ const services = ref([
 
 <style lang="scss" scoped>
 .service {
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-35px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
   min-height: 100vh;
   background-color: $text-1;
   padding: 4rem 7%;
@@ -80,6 +91,10 @@ const services = ref([
       img {
         margin: 0 auto 4rem;
         @extend %center;
+        animation-name: bounce;
+        animation-timing-function: ease;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
       }
       &__text {
         border-bottom: $border;

@@ -631,7 +631,7 @@ onMounted(() => {
     background: $white;
     border-radius: 10px;
     width: auto;
-    max-width: 343px;
+    max-width: 250px;
     padding: 1.5rem;
     @include flex(flex-start, flex-start, row nowrap);
     gap: 1.5rem;

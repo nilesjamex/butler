@@ -155,6 +155,11 @@ const features: {
         line-height: 75.5%;
         color: $black;
         margin-bottom: 0.75rem;
+        @media screen and (max-width: 1300px) {
+          font-size: 2.5rem;
+          line-height: 150%;
+          font-weight: bold;
+        }
       }
       p {
         font-family: "Neurial Grotesk", sans-serif;

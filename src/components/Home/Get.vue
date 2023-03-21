@@ -37,14 +37,25 @@
     font-size: 4rem;
     line-height: 135%;
     color: $white;
+    @include respondMax("mobile2x") {
+      font-size: 2rem;
+    }
   }
   &__images {
     @extend %center;
     gap: 1.5rem;
-    margin: 2rem 0 3.5rem;
+    margin: 2rem auto 3.5rem;
+    width: 90%;
+    flex-wrap: wrap;
+    img {
+      object-fit: contain;
+      width: auto;
+    }
   }
   .screen {
     margin: 0 auto;
+    width: Min(100%, 511px);
+    object-fit: contain;
   }
 }
 </style>

@@ -1,15 +1,17 @@
 <template>
   <section class="subscribe">
     <div class="subscribe__input">
-      <div>
+      <div class="item">
         <p>
           Get updates about our products and our changelog. No spamming,
           promise!
         </p>
-        <input type="text" name="" id="" placeholder="Type your email..." />
-        <span>
-          <img src="@/assets/svg/send.svg" alt="" />
-        </span>
+        <div class="subscribe__input__text">
+          <input type="text" name="" id="" placeholder="Type your email..." />
+          <span>
+            <img src="@/assets/svg/send.svg" alt="" />
+          </span>
+        </div>
       </div>
     </div>
     <div class="subscribe__footer">
@@ -78,17 +80,32 @@
 .subscribe {
   padding: 3rem 0 1.5rem;
   background-color: $text-2;
+  overflow: hidden;
   &__input {
     border-bottom: $border;
     padding-bottom: 2.5rem;
-    & > div {
+    &__text {
+      @extend %flex-ac;
+      justify-content: space-between;
+      width: 100%;
+      @include respondMax("tablet2x") {
+        border: $border;
+        width: 90%;
+      }
+    }
+    .item {
       background-color: $text-2;
       border: $border;
       width: fit-content;
       margin: 0 auto;
       flex-shrink: 0;
       @extend %flex-ac;
-      justify-content: space-between;
+      //justify-content: space-between;
+      @include respondMax("tablet2x") {
+        flex-direction: column;
+        border: none;
+        gap: 1rem;
+      }
       p {
         font-family: "Neurial Grotesk", sans-serif;
         font-style: normal;
@@ -100,10 +117,18 @@
         padding: 0 1.5rem 0 0.5rem;
         border-right: $border;
         height: 70px;
+        flex-shrink: 0;
         @extend %center;
+        @include respondMax("tablet2x") {
+          width: 95%;
+          border-right: unset;
+          height: auto;
+          margin: 0 auto;
+          text-align: center;
+        }
       }
       input[type="text"] {
-        flex-shrink: 0;
+        //flex-shrink: 0;
         height: 100%;
         background-color: transparent;
         border: none;
@@ -114,6 +139,7 @@
         font-size: Max(1rem, 16px);
         line-height: 112%;
         color: $white;
+        width: 100%;
         &::placeholder {
           font-family: "Neurial Grotesk", sans-serif;
           font-style: normal;
@@ -128,6 +154,7 @@
         width: 76px;
         height: 70px;
         background-color: #1f3138;
+        flex-shrink: 0;
       }
     }
   }
@@ -136,6 +163,10 @@
     padding: 1.5rem 7%;
     @include flex(flex-start, flex-start, row nowrap);
     gap: 10rem;
+    @include respondMax("tablet2x") {
+      gap: 2rem;
+      flex-direction: column;
+    }
     .socials {
       @extend %flex-ac;
       gap: 2rem;
@@ -144,8 +175,11 @@
       }
     }
     .info {
-      @include flex(flex-start, flex-start, row nowrap);
+      @include flex(flex-start, flex-start, row wrap);
       gap: 8rem;
+      @include respondMax("tablet2x") {
+        gap: 2rem;
+      }
       dl {
         dt {
           font-family: "Neurial Grotesk", sans-serif;
@@ -170,7 +204,8 @@
   }
   &__foot {
     padding: 0 7%;
-    @include flex(space-between, flex-end, row nowrap);
+    @include flex(space-between, flex-end, row wrap);
+    gap: 1rem;
     h4 {
       font-family: "New Rocker", cursive;
       font-style: normal;

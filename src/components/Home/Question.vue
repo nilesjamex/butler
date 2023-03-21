@@ -103,6 +103,19 @@ const handleFaq = (identifier) => {
       color: $white;
       width: Min(606px, 100%);
     }
+    @include respondMax("mobile3x") {
+      img {
+        display: none;
+      }
+    }
+    @include respondMax("mobile2x") {
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
   }
   &__faq {
     margin-top: 3rem;
@@ -121,6 +134,7 @@ const handleFaq = (identifier) => {
       & > div {
         @extend %flex-ac-jb;
         margin-bottom: 1rem;
+        gap: 0.3rem;
         h4 {
           font-family: "Neurial Grotesk", sans-serif;
           font-style: normal;
@@ -128,6 +142,9 @@ const handleFaq = (identifier) => {
           font-size: Max(2.188rem, 35px);
           line-height: 120%;
           color: $black;
+          @include respondMax("tablet") {
+            font-size: 1.5rem;
+          }
         }
         span {
           width: 48px;
@@ -161,6 +178,9 @@ const handleFaq = (identifier) => {
         line-height: 140%;
         color: $text-1;
         width: Min(750px, 100%);
+        @include respondMax("tablet") {
+          font-size: 1rem;
+        }
       }
     }
   }

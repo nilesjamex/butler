@@ -95,7 +95,7 @@ const marquee = ref([
 
 <style lang="scss" scoped>
 .onboard {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $text-1;
   position: relative;
   padding: 3rem 0;
@@ -117,6 +117,9 @@ const marquee = ref([
       line-height: 120%;
       color: $white;
       margin-bottom: 0.3rem;
+      @include respondMax("mobile2x") {
+        font-size: 2rem;
+      }
     }
     p {
       font-family: "Neurial Grotesk", sans-serif;
@@ -126,12 +129,29 @@ const marquee = ref([
       line-height: 120%;
       color: $white;
     }
+    @include respondMax("mobile2x") {
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
   }
   &__content {
     margin-top: 3rem;
     @extend %flex-ac;
     gap: 2rem;
     padding: 0 7%;
+    @media screen and (max-width: 1370px) {
+      position: relative;
+      flex-wrap: wrap;
+      margin-bottom: 5rem;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
     .item {
       background-color: $white;
       background: linear-gradient(146.61deg, #ffffff 11.76%, #ffffff 89.59%);
@@ -141,6 +161,10 @@ const marquee = ref([
       width: 100%;
       height: 520px;
       padding: 40px 30px;
+      @media screen and (max-width: 1370px) {
+        height: 100%;
+        min-width: unset;
+      }
       h4 {
         font-family: "Neurial Grotesk", sans-serif;
         font-style: normal;
@@ -189,6 +213,9 @@ const marquee = ref([
             line-height: 115%;
             color: $black;
             width: Min(100%, 351px);
+            @media screen and (max-width: 1370px) {
+              width: 100%;
+            }
           }
         }
       }

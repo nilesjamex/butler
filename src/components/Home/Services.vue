@@ -78,16 +78,33 @@ const services = ref([
       line-height: 120%;
       color: $white;
     }
+    @include respondMax("mobile2x") {
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
   }
   &__card {
     @extend %flex-ac-jb;
     gap: 1rem;
     margin-top: 7rem;
+    @media screen and (max-width: 1300px) {
+      flex-wrap: wrap;
+    }
     .item {
       padding: 31px 20px;
       border: $border;
       border-radius: 1.25rem;
       width: Max(26.875rem, 430px);
+      max-height: 550px;
+      height: 550px;
+      @media screen and (max-width: 1300px) {
+        flex-grow: 1;
+        text-align: center;
+      }
       img {
         margin: 0 auto 4rem;
         @extend %center;

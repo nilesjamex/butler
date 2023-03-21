@@ -33,8 +33,9 @@
     </div>
     <div class="hero__button">
       <p>butler</p>
-      <div class="button">
+      <div class="button" :class="{ button__active: active }">
         <button
+          @click="active = !active"
           v-for="item in button"
           :key="item.id"
           :class="{ active: item.id === 5 }"
@@ -43,8 +44,12 @@
           <div v-html="item.icon" v-if="item.icon"></div>
         </button>
       </div>
+      <div class="toggle" @click="active = !active">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
     </div>
-    <div id="demo"></div>
     <div class="hero__text">
       <p>Make your life easier than before without</p>
       <!-- <div class="hero__text__sub">
@@ -54,7 +59,8 @@
           <h6>Love</h6>
         </div>
       </div> -->
-      <div class="pushcontain">
+      <div class="demo"></div>
+      <!-- <div class="pushcontain">
         <div class="push">
           <span :class="count === 1 ? `active` : ``">L</span
           ><span :class="count === 1 ? `active` : ``">A</span
@@ -80,7 +86,7 @@
           ><span :class="count === 3 ? `active` : ``">N</span
           ><span :class="count === 3 ? `active` : ``">G</span>
         </div>
-      </div>
+      </div> -->
     </div>
     <p class="sub">
       We understand that life can be hectic, and that's why we're here to take
@@ -105,11 +111,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import SplitTextJS from "split-text-js";
 import { gsap, Linear } from "gsap";
 const store = useStore();
+const active = ref(false);
 const button = ref([
   {
     id: 1,
@@ -190,38 +197,40 @@ titles.forEach((title) => {
   //   "<1"
   // );
 });
-
-let phrases = ["Laundry", "Cleaning", "Food"];
-let demo = document.querySelector("#demo");
-console.log(document.querySelector("#demo"));
-let animation = gsap.timeline({ repeat: 5, repeatDelay: 0.5 });
-const createLayers = () => {
-  phrases.forEach((phrase) => {
-    let layer = document.createElement("div");
-    layer.innerHTML = phrase;
-    //demo.appendChild(layer);
-  });
-};
-const animateText = () => {
-  let layers = document.querySelectorAll(".demo div");
-  layers.forEach(function (element, index) {
-    animation.fromTo(
-      element,
-      { opacity: 0, scale: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        repeat: 1,
-        yoyo: true,
-        yoyoEase: true,
-        repeatDelay: 0.3,
-      }
-    );
-  });
-  gsap.set(".demo", { visibility: "visible" });
-};
-createLayers();
-animateText();
+onMounted(() => {
+  let phrases = ["Laundry", "Cleaning", "Food"];
+  let demo = document.querySelector(".demo");
+  console.log(demo);
+  let animation = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
+  const createLayers = () => {
+    phrases.forEach((phrase) => {
+      let layer = document.createElement("h6");
+      layer.innerHTML = phrase;
+      demo.appendChild(layer);
+    });
+  };
+  const animateText = () => {
+    let layers = document.querySelectorAll(".demo h6");
+    layers.forEach(function (element) {
+      animation.fromTo(
+        element,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          duration: 1,
+          y: 0,
+          repeat: 1,
+          yoyo: true,
+          yoyoEase: true,
+          repeatDelay: 0.3,
+        }
+      );
+    });
+    gsap.set(".demo", { visibility: "visible" });
+  };
+  createLayers();
+  animateText();
+});
 </script>
 
 <style lang="scss" scoped>
@@ -286,6 +295,7 @@ animateText();
     animation-timing-function: ease;
     animation-duration: 2s;
     animation-iteration-count: infinite;
+    z-index: 1;
   }
   .star {
     position: absolute;
@@ -326,12 +336,53 @@ animateText();
     color: #ffffff;
     @extend %center;
   }
+  .demo {
+    //display: none;
+  }
   &__button {
     padding: 3rem 7%;
     @extend %flex-ac-jb;
+    .toggle {
+      display: none;
+      @include respondMax("tablet2x") {
+        display: block;
+        z-index: 5;
+      }
+      .box {
+        width: 25px;
+        height: 1.5px;
+        background-color: $text-1;
+        margin: 0.25rem 0;
+      }
+    }
     .button {
       @extend %flex-ac;
       gap: 1rem;
+      @include respondMax("tablet2x") {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        top: 8vh;
+        bottom: 0;
+        right: 0;
+        order: 1;
+        transition: all 0.2s ease-out;
+        overflow: hidden;
+        z-index: 4;
+        padding: 5% 1.5rem 3%;
+        height: 100%;
+        width: 100%;
+        background-color: #f2e2da;
+        background-blend-mode: hue;
+        background-image: url(@/assets/hue2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        transform: translateX(100%);
+        &__active {
+          transform: translateX(0%);
+        }
+      }
       p {
         font-family: "Neurial Grotesk", sans-serif;
         font-style: normal;
@@ -365,6 +416,18 @@ animateText();
     margin: 2rem auto;
     text-align: center;
     .demo {
+      font-family: "Maglony";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 5rem;
+      line-height: 0;
+      color: $text-2;
+      position: relative;
+      z-index: 2;
+      //display: none;
+      h6 {
+        color: $text-2;
+      }
     }
     .push {
       font-family: "Maglony";
@@ -511,6 +574,14 @@ animateText();
       text-align: center;
       color: $black;
       margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+      @media screen and (max-width: 850px) {
+        font-size: 4rem;
+      }
+      @include respondMax("mobile2x") {
+        font-size: 2.5rem;
+      }
     }
     h6 {
       font-family: "Maglony";
@@ -520,11 +591,13 @@ animateText();
       line-height: 150%;
       margin: 0;
       color: $text-2;
+      position: relative;
+      z-index: 2;
     }
   }
   p {
     &.sub {
-      width: Min(530px, 100%);
+      width: Min(530px, 90%);
       font-family: "Neurial Grotesk", sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -533,6 +606,8 @@ animateText();
       text-align: center;
       color: $text-1;
       margin: 4rem auto;
+      position: relative;
+      z-index: 2;
     }
   }
   button {

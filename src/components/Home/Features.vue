@@ -128,6 +128,9 @@ const features: {
     color: $text-1;
     width: Min(100%, 697px);
     margin: 1rem auto;
+    @include respondMax("mobile2x") {
+      font-size: 2rem;
+    }
   }
   &__card {
     @extend %flex-ac-jb;
@@ -138,7 +141,9 @@ const features: {
       flex-grow: 1;
       width: Min(340px, 100%);
       height: Max(330px, 20.625rem);
-      background-color: $white;
+      background-color: transparent;
+      border: 1px solid #1f3138;
+      border-radius: 1.25rem;
       padding: 2rem;
       margin-bottom: 1rem;
       @include flex(space-between, space-between, column nowrap);

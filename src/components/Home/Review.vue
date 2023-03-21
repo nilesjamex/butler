@@ -182,6 +182,9 @@ const reviews: {
   background-repeat: no-repeat;
   padding: 3rem 0;
   position: relative;
+  @include respondMax("tablet2x") {
+    min-height: unset;
+  }
   @keyframes infinityScroll {
     100% {
       transform: translateX(-50%);
@@ -225,6 +228,9 @@ const reviews: {
     animation-timing-function: ease;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+    @include respondMax("tablet2x") {
+      display: none;
+    }
   }
   .excited {
     position: absolute;
@@ -234,10 +240,16 @@ const reviews: {
     animation-timing-function: ease;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+    @include respondMax("tablet2x") {
+      display: none;
+    }
   }
   &__text {
     padding: 0 7%;
     margin-bottom: 3rem;
+    @include respondMax("tablet2x") {
+      text-align: center;
+    }
     p {
       font-family: "Neurial Grotesk", sans-serif;
       font-style: normal;
@@ -254,6 +266,17 @@ const reviews: {
       font-size: 4rem;
       line-height: 130%;
       color: $black;
+      @include respondMax("tablet2x") {
+        margin: 0 auto;
+      }
+      @include respondMax("mobile2x") {
+        p {
+          font-size: 1rem;
+        }
+        h4 {
+          font-size: 2rem;
+        }
+      }
     }
   }
   &__stars {

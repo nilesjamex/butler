@@ -243,6 +243,9 @@ onMounted(() => {
   min-height: 100vh;
   position: relative;
   padding-bottom: 3rem;
+  @media screen and (max-width: 1300px) {
+    min-height: 40vh;
+  }
   @keyframes bounce {
     0% {
       transform: translateY(0);
@@ -296,6 +299,11 @@ onMounted(() => {
     animation-duration: 2s;
     animation-iteration-count: infinite;
     z-index: 1;
+    @media screen and (max-width: 1300px) {
+      top: 10%;
+      width: 20%;
+      height: 20%;
+    }
   }
   .star {
     position: absolute;
@@ -305,6 +313,11 @@ onMounted(() => {
     animation-timing-function: ease;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+    @media screen and (max-width: 1300px) {
+      top: 60%;
+      width: 20%;
+      height: 20%;
+    }
   }
   .bee {
     position: absolute;
@@ -323,6 +336,11 @@ onMounted(() => {
     animation-timing-function: ease;
     animation-duration: 6s;
     animation-iteration-count: infinite;
+    @media screen and (max-width: 1300px) {
+      top: 85%;
+      width: 30%;
+      height: 30%;
+    }
   }
   &__heading {
     height: 42px;
@@ -335,6 +353,10 @@ onMounted(() => {
     line-height: 120%;
     color: #ffffff;
     @extend %center;
+    @media screen and (max-width: 1300px) {
+      height: 30px;
+      font-size: 1.1rem;
+    }
   }
   .demo {
     //display: none;
@@ -580,7 +602,9 @@ onMounted(() => {
         font-size: 4rem;
       }
       @include respondMax("mobile2x") {
-        font-size: 2.5rem;
+        font-size: 4rem;
+        margin: 8%;
+        font-weight: 700;
       }
     }
     h6 {
@@ -625,6 +649,10 @@ onMounted(() => {
       font-size: Max(1.25rem, 20px);
       line-height: 120%;
       color: $white;
+      @media screen and (max-width: 1300px) {
+        padding: 30px 30px;
+        margin-bottom: 200px;
+      }
     }
   }
   &__cookie {

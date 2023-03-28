@@ -131,10 +131,10 @@ const marquee = ref([
     }
     @include respondMax("mobile2x") {
       h2 {
-        font-size: 2rem;
+        font-size: 2.1rem;
       }
       p {
-        font-size: 1rem;
+        font-size: 1.3rem;
       }
     }
   }

@@ -83,7 +83,7 @@ const services = ref([
         font-size: 2rem;
       }
       p {
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -117,7 +117,7 @@ const services = ref([
       &__text {
         border-bottom: $border;
         margin-bottom: 1rem;
-        padding: 0.5rem 0;
+        padding: 0.2rem 0;
         h4 {
           font-family: "Neurial Grotesk", sans-serif;
           font-style: normal;
@@ -130,10 +130,10 @@ const services = ref([
           font-family: "Neurial Grotesk", sans-serif;
           font-style: normal;
           font-weight: 400;
-          font-size: Max(1.125rem, 18px);
+          font-size: Max(1.125rem, 16px);
           line-height: 120%;
           color: $white;
-          margin: 0.5rem 0;
+          margin: 0.2rem 0;
         }
       }
       button {
@@ -149,11 +149,11 @@ const services = ref([
         border: $border;
         color: $text-3;
         margin-top: 0.65rem;
-        transition: all 0.5s ease-in-out;
+        transition: all 0.2s ease-in-out;
         &:hover {
           background: $text-3;
           color: $text-1;
-          transition: all 0.5s ease-in-out;
+          transition: all 0.2s ease-in-out;
         }
         @media screen and (max-width: 1300px) {
           height: auto;

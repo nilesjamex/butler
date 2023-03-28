@@ -57,5 +57,8 @@
     width: Min(100%, 511px);
     object-fit: contain;
   }
+  @media screen and (max-width: 1300px) {
+    width: Min(100%, 311px);
+  }
 }
 </style>

@@ -110,10 +110,10 @@ const handleFaq = (identifier) => {
     }
     @include respondMax("mobile2x") {
       h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       p {
-        font-size: 1rem;
+        font-size: 1.4rem;
       }
     }
   }
@@ -124,12 +124,15 @@ const handleFaq = (identifier) => {
       background-color: #d6eee9;
       border-radius: Max(1.25rem, 20px);
       padding: 52px 60px;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.2s ease-in-out;
       height: 155px;
+      @media screen and (max-width: 1300px) {
+        padding: 52px 30px;
+      }
       &.active {
         background-color: #d9d9d9;
         height: 230px;
-        transition: all 0.5s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }
       & > div {
         @extend %flex-ac-jb;
@@ -152,20 +155,20 @@ const handleFaq = (identifier) => {
           background: #ffffff;
           border-radius: 24px;
           @extend %center;
-          transition: all 0.5s ease-in-out;
+          transition: all 0.2s ease-in-out;
           flex-shrink: 0;
           cursor: pointer;
           img {
-            transition: all 0.5s ease-in-out;
+            transition: all 0.2s ease-in-out;
           }
           &.active {
             background-color: $black;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.2s ease-in-out;
             img {
               transform: rotate(45deg);
               fill: $white;
               filter: invert(1);
-              transition: all 0.5s ease-in-out;
+              transition: all 0.2s ease-in-out;
             }
           }
         }
@@ -179,7 +182,7 @@ const handleFaq = (identifier) => {
         color: $text-1;
         width: Min(750px, 100%);
         @include respondMax("tablet") {
-          font-size: 1rem;
+          font-size: 1.4rem;
         }
       }
     }

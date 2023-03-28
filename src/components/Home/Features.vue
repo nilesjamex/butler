@@ -174,7 +174,7 @@ const features: {
         line-height: 125%;
         color: $black;
         @media screen and (max-width: 1300px) {
-          font-size: 1rem;
+          font-size: 1.4rem;
           line-height: 180%;
           font-weight: bold;
         }

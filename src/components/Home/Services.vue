@@ -103,7 +103,8 @@ const services = ref([
       height: 550px;
       @media screen and (max-width: 1300px) {
         flex-grow: 1;
-        text-align: center;
+        text-align: left;
+        max-height: 490px;
       }
       img {
         margin: 0 auto 4rem;
@@ -153,6 +154,9 @@ const services = ref([
           background: $text-3;
           color: $text-1;
           transition: all 0.5s ease-in-out;
+        }
+        @media screen and (max-width: 1300px) {
+          height: auto;
         }
       }
     }

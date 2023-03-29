@@ -170,6 +170,7 @@
     .socials {
       @extend %flex-ac;
       gap: 2rem;
+      width: 22.5%;
       img {
         cursor: pointer;
       }
@@ -210,7 +211,7 @@
       font-family: "New Rocker", cursive;
       font-style: normal;
       font-weight: 400;
-      font-size: 8rem;
+      font-size: 5rem;
       line-height: 80%;
       color: $white;
     }

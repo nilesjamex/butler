@@ -49,7 +49,7 @@ const faq = ref([
   },
   {
     id: 2,
-    question: "does your food taste like trenches food?",
+    question: "what others services do you render?",
     answer:
       "As a hospitality company, we work with you to ease you of your balablu you are currently encountering in the country, that’ depriving you off enjoyment in your day-to-day life.",
     showAnswer: false,

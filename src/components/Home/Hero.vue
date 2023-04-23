@@ -347,7 +347,7 @@ onMounted(() => {
     width: 100vw;
     background-color: $black;
     font-family: "Neurial Grotesk", sans-serif;
-    font-style: normal;
+    font-style: bold;
     font-weight: 500;
     font-size: 18px;
     line-height: 120%;
@@ -646,9 +646,14 @@ onMounted(() => {
       font-family: "Neurial Grotesk", sans-serif;
       font-style: normal;
       font-weight: 500;
-      font-size: Max(1.25rem, 20px);
+      // font-size: Max(1.25rem, 20px);
       line-height: 120%;
       color: $white;
+      &:hover {
+        background-color: #275f0b;
+        color: $white;
+        transition: background-color 0.2s ease-in-out;
+      }
       @media screen and (max-width: 1300px) {
         padding: 30px 30px;
         margin-bottom: 200px;
